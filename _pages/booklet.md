@@ -7,7 +7,7 @@ author_profile: true
 
 # A brief booklet for my C course
 
-##### by Matteo Fraschini
+##### by Matteo Fraschini.
 
 
 
