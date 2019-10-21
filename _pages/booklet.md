@@ -1,4 +1,10 @@
+---
+layout: archive
+title: "booklet"
+permalink: /booklet/
+author_profile: true
 
+---
 
 # A brief booklet for my C course
 
