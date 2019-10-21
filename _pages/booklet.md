@@ -62,7 +62,7 @@ int number;
 
 With this instruction, you are declaring a variable named `number` as an integer (`int`). What happens is that a block of memory will be reserved for this variable and that you can access this block of memory simply using its name. How is this block long? Probably 4 bytes, but just test it yourself:
 
-```C
+```c
 #include <stdio.h>
 int main() {
   int number;
@@ -78,7 +78,7 @@ Let's go back to declarations and types. There are few basic types. You will see
 
 To interact with your variables you can use the arithmetic operators (`+`, `-`, `* ` and `/`) to build some very simple expressions. The symbol `=` is used to assign a value to a variable as shown below:
 
-```C
+```c
 #include <stdio.h>
 int main() {
   int number;
@@ -202,7 +202,7 @@ In this simple example, you have seen a few new things. In particular, the sum o
 
 As previously mentioned there is at least another very useful loop statement in C, the `while` loop. Most of the time you will experience that you can easily use these two different loops in an interchangeably way. My preference is to use the `for` when I have a priori knowledge of the number of iterations. One of the more evident differences is that after the keyword `while`, inside the `()` you only have to define the conditional expression. There is no formal initialization of any variable to control the loop and there is not a formal increment/decrement of this variable. This does not mean that you may just ignore this variable. Probably, all you need to do is to perform these steps in a different way. See the following example which is equivalent to the one seen before in the case of the `for` loop:
 
-```C
+```c
 #include <stdio.h>
 int main() {
   int i=1,n,num,sum=0;
@@ -282,7 +282,7 @@ int main() {
 
 Let's see some more examples on the use of arrays. The next asks to store N grades in an array and evaluate the mean, the max, and the min grade.
 
-```C
+```c
 #include <stdio.h>
 #define NGRADES 10
 int main() {
@@ -317,7 +317,7 @@ As you can see, in order to compute the min (max) of the elements stored in an a
 
 Now let's see how to *search for* a specific value in an array of integers.
 
-```C
+```c
 #include <stdio.h>
 #define DIM 100
 int main() {
@@ -345,7 +345,7 @@ After the array is loaded, the user enters an integer (`elem`) to be found in th
 
 In the following example, you will see how *to order* the elements of an array in ascending order. The proposed solution is very simple and intuitive, however, it does not represent an optimal way to solve the problem as we will briefly discuss later.
 
-```C
+```c
 #include <stdio.h>
 #define DIM 100
 int main() {
@@ -388,7 +388,7 @@ As you can see, two `for` loops have been used to order the array. The innermost
 
 Arrays are sets of homogenous elements (all the elements are of the same type). With the *structures* you can define a completely new and personalized type. The variables declared of this type may have several components, each of specific and different type. Here's a very simple example of structure *definition* and *declaration*.
 
-```C
+```c
 struct student {
         int ID_number;
         char name[DIM_NAME];
@@ -402,7 +402,7 @@ You can access the components in this as follow: `my_student.ID_number`, `my_stu
 
 To load data into the variable `my_student` see this code:
 
-```C
+```c
 #include <stdio.h>
 #define DIM_NAME 20
 
@@ -431,7 +431,7 @@ Note that when you use the `scanf` for a string you do not need to use the symbo
 
 Anyway, it is better do not use `scanf` for strings at all. This is because `scanf` does not explicitly allow to check for the dimension of the string and because it may not work as you expect. If you type a *space* your input will be interrupted. The best solution to input strings is by using the function `fgets`. See the new version of the last code:
 
-```C
+```c
 #include <stdio.h>
 #define DIM_NAME 20
 
@@ -461,7 +461,7 @@ As you can see, with the `fgets` you have control over the dimension of the stri
 
 You have just seen that **structures can contain arrays**, furthermore, you can also have **arrays of structures** and **structures that contain structures** as shown in the following examples:
 
-```C
+```c
 #include <stdio.h>
 #define DIM_NAME 20
 #define DIM_STUD 100
@@ -500,7 +500,7 @@ int main() {
 
 Note the usage of `scanf("%c",&enter);` that allows ignoring the character `\n` (in the buffer after the user inserts the number of students and later the student ID) as input in the following `fgets` call.  
 
-```C
+```c
 #include <stdio.h>
 #define DIM_NAME 50
 #define DIM_STUD 1000
@@ -561,7 +561,7 @@ Pointers in C are everywhere and may be used for almost everything. *Pointers ar
 
 Let's see ho to use pointers:
 
-```C
+```c
 #include <stdio.h>
 int main() {
   int n=10;
@@ -642,7 +642,7 @@ There are several other reasons that make linked lists a very powerful tool in C
 
 It is very important to understand that **arrays and pointers are strictly connected**. You can use an external pointer to manage an array by means of *pointer arithmetics*. So, if you have a situation like this:
 
-```C
+```c
 int v[N];
 int *v_ptr;
 
@@ -651,7 +651,7 @@ v_ptr = &v[0];
 
 you can use the pointer `v_ptr` to interact with the array `v`. This last instruction `v_ptr = &v[0];` meaning that your external pointer points to the first element of the array.
 
-```C
+```c
 #include <stdio.h>
 int main() {
   int i,v[3]={1,2,3};
@@ -683,7 +683,7 @@ Functions are subprograms, blocks of code that can be reused when a specific fun
 
 If you want to create a function, you have to **declare** it, **call** it in the calling function (can be different from the *main*) and **define** it. See this trivial example:
 
-```C
+```c
 #include <stdio.h>
 int sum(int,int); //function declaration
 
@@ -709,7 +709,7 @@ The definition, starting with `int sum(int c,int d)` and followed by a block of 
 
 If, for some reasons, you want to change the value of the *actual parameter* from the function, you need to use a pointer. See this example:
 
-```C
+```c
 #include <stdio.h>
 void swap(int *, int *);
 int main() {
@@ -738,7 +738,7 @@ It is very common to use functions that have to work on arrays. Obviously, you c
 
 Now let's see a simple example, where you have to define a function to compute the *min* of an array of integers.
 
-```C
+```c
 #include <stdio.h>
 #define DIM 10
 
@@ -777,7 +777,7 @@ As you can see, the call of function `compute_min` requires two actual parameter
 
 See this other example, which should help to understand this latter point.
 
-```C
+```c
 #include <stdio.h>
 #define DIM 10
 
@@ -833,7 +833,7 @@ There are few but essential points that it is very important to remember when us
 
 1- every time you need to create an element you need to allocate the necessary memory for it. You can do this using the `malloc` function (including the library `stdlib.h`). The `malloc` returns a pointer and needs to know the size of the element. Here an example of call for a user-defined *struct* named *my_list*: `malloc(sizeof(struct my_list))`. See the following example used to allocate the memory needed for an element of the list `my_list`:
 
-```C
+```c
 struct my_list * p;
 p=(struct my_list *)malloc(sizeof(struct my_list));
 ```
@@ -842,7 +842,7 @@ Now, you can use the pointer `p` to access the new allocated memory location.
 
 2- every single element of your list will be linked to the following one by using an *internal* pointer. As a consequence, when you define your *struct* do not forget to include a *pointer* (as a component) to this *struct*:
 
-```C
+```c
 struct my_list {
     int num;
     struct my_list *next;
@@ -859,7 +859,7 @@ These are essentially the things you need to know when managing a *linked list*.
 
 Important note: it is very common to find the use of **typedef** in C. Therefore, even if we have not used it, it may be important to know what it means. With **typedef** you can create an *alias*. For example, you can use an *alias* for your structure as follows:
 
-```C
+```c
 struct my_list {
     int num;
     struct my_list *next;
@@ -871,7 +871,7 @@ list list_01, list_02;
 
 Or, if you prefer:
 
-```C
+```c
 typedef struct my_list {
     int num;
     struct my_list *next;
