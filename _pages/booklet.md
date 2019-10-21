@@ -1,6 +1,5 @@
 ---
 layout: archive
-title: "booklet"
 permalink: /booklet/
 author_profile: true
 
